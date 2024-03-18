@@ -8,7 +8,7 @@ export const TodoWrapper = () => {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/v1/todo/bulk")
+    axios.get("https://todo-app-backend-0zzc.onrender.com/api/v1/todo/bulk")
       .then(response => {
         setTodos(response.data);
       })
@@ -24,7 +24,7 @@ export const TodoWrapper = () => {
       isEditing: false
     };
 
-    axios.post("http://localhost:3000/api/v1/todo", newTodo)
+    axios.post("https://todo-app-backend-0zzc.onrender.com/api/v1/todo", newTodo)
       .then(response => {
         setTodos([...todos, response.data]);
       })
@@ -34,7 +34,7 @@ export const TodoWrapper = () => {
   }
 
   const deleteTodo = (id) => {
-    axios.delete(`http://localhost:3000/api/v1/todo/${id}`)
+    axios.delete(`https://todo-app-backend-0zzc.onrender.com/api/v1/todo/${id}`)
       .then(() => {
         setTodos(todos.filter((todo) => todo._id !== id));
       })
@@ -47,7 +47,7 @@ export const TodoWrapper = () => {
     const todo = todos.find((todo) => todo._id === id);
   
     if (todo) {
-      axios.put(`http://localhost:3000/api/v1/todo/${id}/toggle`)
+      axios.put(`https://todo-app-backend-0zzc.onrender.com/api/v1/todo/${id}/toggle`)
         .then(() => {
           setTodos(
             todos.map((todo) =>

@@ -8,7 +8,7 @@ export const EditTodoForm = ({editTodo, task}) => {
         e.preventDefault();
         // edit todo
         if (value) {
-          axios.put(`http://localhost:3000/api/v1/todo/${task._id}`, { 
+          axios.put(`https://todo-app-backend-0zzc.onrender.com/api/v1/todo/${task._id}`, { 
               title: value
           })
           .then(response => {
